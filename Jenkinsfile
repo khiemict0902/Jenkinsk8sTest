@@ -16,7 +16,9 @@ pipeline {
         script { 
           sh 'whoami'
           sh 'groups'
-          dockerImage = docker.build("${dockerimagename}", "-f src/Dockerfile src")
+          withEnv(['DOCKER_BUILDKIT=0']) {
+                dockerImage = docker.build("${dockerimagename}", "-f src/Dockerfile src")
+            }
         } 
       } 
     }
@@ -44,7 +46,7 @@ pipeline {
 
       steps { 
             container('jnlp') { 
-              sh 'kubectl create -f ./k8s/deployment.yaml' 
+              sh 'kubectl apply -f ./k8s/deployment.yaml' 
           }      
       } 
     } 
