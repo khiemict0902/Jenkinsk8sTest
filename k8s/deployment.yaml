@@ -17,7 +17,7 @@ spec:
     spec: 
       containers: 
       - name: test-container   
-        image: khiemdevops0902/test:02
+        image: khiemdevops0902/test
         ports: 
         - containerPort: 80 
 --- 
