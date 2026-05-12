@@ -16,7 +16,7 @@ pipeline {
         script { 
           sh 'whoami'
           sh 'groups'
-          dockerImage = docker.build dockerimagename 
+          dockerImage = docker.build("${dockerimagename}", "-f src/Dockerfile src")
         } 
       } 
     }
