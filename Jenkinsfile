@@ -42,7 +42,7 @@ pipeline {
 
       steps { 
             container('jnlp') { 
-              sh 'kubectl create -f deployment.yaml' 
+              sh 'kubectl create -f ./k8s/deployment.yaml' 
           }      
       } 
     } 
