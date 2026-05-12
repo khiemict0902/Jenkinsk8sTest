@@ -6,4 +6,4 @@ metadata:
 spec:
   containers:
   - name: jnlp
-    image: khiemdevops0902/test01:01
+    image: khiemdevops0902/test
