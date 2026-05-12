@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jnlp
+  namespace: jenkins
+spec:
+  containers:
+  - name: jnlp
+    image: khiemdevops0902/test01:01
