@@ -14,6 +14,8 @@ pipeline {
     stage('Build image') { 
       steps{ 
         script { 
+          sh 'whoami'
+          sh 'groups'
           dockerImage = docker.build dockerimagename 
         } 
       } 
