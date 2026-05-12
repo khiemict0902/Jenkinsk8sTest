@@ -7,7 +7,7 @@ pipeline {
   stages { 
     stage('Checkout Source') { 
       steps { 
-        git branch: 'main', credentialsId: 'githubCred', url: 'https://https://github.com/khiemict0902/Jenkinsk8sTest.git' 
+        git branch: 'main', credentialsId: 'githubCred', url: 'https://github.com/khiemict0902/Jenkinsk8sTest.git' 
       } 
     } 
     
