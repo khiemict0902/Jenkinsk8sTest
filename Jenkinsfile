@@ -39,7 +39,7 @@ pipeline {
     stage('Deploying container to Kubernetes') { 
       agent { 
         kubernetes { 
-          cloud 'Kubernetes' 
+          cloud 'kubernetes' 
           yamlFile 'pod.yaml' 
         } 
       } 
