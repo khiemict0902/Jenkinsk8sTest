@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
   - name: jnlp
-    image: khiemdevops0902/test
+    image: khiemdevops0902/test01
     command:
     imagePullPolicy: IfNotPresent
     volumeMounts:
