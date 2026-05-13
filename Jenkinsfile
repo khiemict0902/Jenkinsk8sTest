@@ -17,7 +17,7 @@ pipeline {
           sh 'whoami'
           sh 'groups'
           withEnv(['DOCKER_BUILDKIT=0']) {
-                dockerImage = docker.build("${dockerimagename}:${BUILD_NUMBER}", "-f src/Dockerfile src")
+                dockerImage = docker.build("${dockerimagename}", "-f src/Dockerfile src")
             }
         } 
       } 
@@ -30,7 +30,7 @@ pipeline {
       steps{ 
         script { 
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) { 
-            dockerImage.push("${BUILD_NUMBER}") 
+            dockerImage.push("latest") 
           } 
         } 
       } 
@@ -46,8 +46,9 @@ pipeline {
 
       steps { 
             container('jnlp') { 
-              sh "sed -i 's|khiemdevops0902/test:.*|khiemdevops0902/test:${BUILD_NUMBER}|g' ./k8s/deployment.yaml"
               sh 'kubectl apply -f ./k8s/deployment.yaml' 
+              sh 'kubectl rollout restart deployment/test -n jenkins'
+              sh 'kubectl rollout status deployment/test -n jenkins'
           }      
       } 
     } 
