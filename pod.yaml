@@ -7,3 +7,13 @@ spec:
   containers:
   - name: jnlp
     image: khiemdevops0902/test
+    command:
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - name: kubectl-binary
+      mountPath: /usr/local/bin/kubectl
+      readOnly: true
+  volumes:
+    - name: kubectl-binary
+      hostPath:
+        path: /usr/bin/kubectl
